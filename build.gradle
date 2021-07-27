@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+javafx {
+    version = "11.0.2"
+    modules = ['javafx.controls', 'javafx.graphics', 'javafx.fxml']
+}
+
+group 'org.github.jinlongliao'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('http://maven.aliyun.com/nexus/content/groups/public/')
+    }
+    maven {
+        url = uri('http://repo.spring.io/snapshot')
+    }
+
+    maven {
+        url = uri('http://repo.spring.io/milestone')
+    }
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.openjfx:javafx-web:11.0.2:mac'
+    implementation 'org.openjfx:javafx-web:11.0.2:win'
+    implementation 'org.openjfx:javafx-swing:11.0.2:win'
+    implementation 'org.openjfx:javafx-swing:11.0.2:mac'
+    implementation group: 'org.openjfx', name: 'javafx-swing', version: '11.0.2'
+    implementation group: 'org.openjfx', name: 'javafx-web', version: '11.0.2'
+    implementation 'com.xwintop:xcore:0.0.6'
+    implementation 'org.apache.mina:mina-core:2.1.2'
+    implementation 'com.github.oshi:oshi-core:3.9.1'
+    testImplementation 'junit:junit:4.12'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
